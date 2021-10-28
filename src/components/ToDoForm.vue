@@ -21,7 +21,11 @@ export default {
   name: "ToDoForm.vue",
   methods: {
     onSubmit() {
-      console.log('Label value: ', this.label);
+      if(this.label === "") {
+        return;
+      }
+      this.$emit('todo-added', this.label);
+      this.label = "";
     }
   },
   data() {
